@@ -4,27 +4,29 @@ import { useRef, MouseEvent } from "react";
 import { motion, useInView } from "framer-motion";
 import TextReveal from "@/components/TextReveal";
 
+import { Eye, Brain, Zap, Network } from "lucide-react";
+
 const CAPABILITIES = [
   {
-    icon: "👁️",
+    icon: <Eye size={36} strokeWidth={1.5} />,
     title: "Neural Vision",
     description: "See beyond biological limitations. Enhanced visual processing with AR overlays and multi-spectrum analysis.",
     color: "#00F5FF",
   },
   {
-    icon: "🧠",
+    icon: <Brain size={36} strokeWidth={1.5} />,
     title: "Memory Expansion",
     description: "Store and access infinite knowledge. Petabyte neural storage with instant recall capabilities.",
     color: "#7B2EFF",
   },
   {
-    icon: "⚡",
+    icon: <Zap size={36} strokeWidth={1.5} />,
     title: "Quantum Thinking",
     description: "Accelerated decision making. Process complex scenarios in milliseconds with quantum-enhanced cognition.",
     color: "#FF006E",
   },
   {
-    icon: "🔗",
+    icon: <Network size={36} strokeWidth={1.5} />,
     title: "Bio Integration",
     description: "Merge seamlessly with AI systems. Real-time neural interface with global AI networks.",
     color: "#00FF88",
