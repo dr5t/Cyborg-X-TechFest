@@ -27,7 +27,6 @@ export default function AnimatedCounter({
     const el = containerRef.current;
     if (!el) return;
 
-    // Parse the numeric part
     const numericMatch = value.match(/[\d.]+/);
     const suffix = value.replace(/[\d.]+/, "");
     const targetNum = numericMatch ? parseFloat(numericMatch[0]) : 0;

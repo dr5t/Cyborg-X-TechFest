@@ -3,7 +3,6 @@
 import { useState, useCallback } from "react";
 import dynamic from "next/dynamic";
 
-// Dynamic imports for heavy components (code splitting)
 const LoadingScreen = dynamic(() => import("@/components/LoadingScreen"), {
   ssr: false,
 });
@@ -18,7 +17,6 @@ const WebGLBackground = dynamic(
   { ssr: false }
 );
 
-// Section imports
 const HeroSection = dynamic(() => import("@/sections/HeroSection"), {
   ssr: false,
 });
@@ -63,16 +61,13 @@ export default function Home() {
 
   return (
     <>
-      {/* Loading Screen */}
+
       {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
 
-      {/* Custom Cursor */}
       <CustomCursor />
 
-      {/* WebGL Background (fixed, behind everything) */}
       <WebGLBackground />
 
-      {/* Smooth Scroll Wrapper */}
       <SmoothScroll>
         <main className="relative z-[1]">
           <HeroSection />

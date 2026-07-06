@@ -72,7 +72,7 @@ export default function HeroSection() {
       id="hero"
       className="relative w-full h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* 3D Cyborg Head Canvas */}
+
       <div className="absolute inset-0 z-[1]">
         <Canvas
           camera={{ position: [0, 0, 6], fov: 50 }}
@@ -87,7 +87,6 @@ export default function HeroSection() {
         </Canvas>
       </div>
 
-      {/* Content Overlay */}
       <div className="relative z-[2] text-center px-6 max-w-5xl mx-auto">
         <div ref={headlineRef}>
           <h1
@@ -141,7 +140,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 z-[2]"
         initial={{ opacity: 0 }}
@@ -192,7 +190,6 @@ export default function HeroSection() {
         </div>
       </motion.div>
 
-      {/* Gradient fade at bottom */}
       <div
         className="absolute bottom-0 left-0 right-0 h-32 z-[2] pointer-events-none"
         style={{

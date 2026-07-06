@@ -16,9 +16,6 @@ const NODES = [
   { label: "Creativity", angle: 300, color: "#7B2EFF" },
 ];
 
-/* ============================
-   AI Core Sphere
-   ============================ */
 function AICoreModel() {
   const groupRef = useRef<THREE.Group>(null);
   const coreRef = useRef<THREE.Mesh>(null);
@@ -39,19 +36,17 @@ function AICoreModel() {
 
   return (
     <group ref={groupRef}>
-      {/* Central core sphere */}
+
       <mesh ref={coreRef}>
         <sphereGeometry args={[0.6, 32, 32]} />
         <meshBasicMaterial color="#00F5FF" transparent opacity={0.3} />
       </mesh>
 
-      {/* Core wireframe */}
       <mesh>
         <icosahedronGeometry args={[0.8, 2]} />
         <meshBasicMaterial wireframe color="#00F5FF" transparent opacity={0.15} />
       </mesh>
 
-      {/* Core label */}
       <Text
         position={[0, 0, 0.9]}
         fontSize={0.15}
@@ -63,7 +58,6 @@ function AICoreModel() {
         AI CORE
       </Text>
 
-      {/* Orbital nodes */}
       {NODES.map((node, i) => {
         const angleRad = (node.angle * Math.PI) / 180;
         const x = Math.cos(angleRad) * radius;
@@ -72,7 +66,7 @@ function AICoreModel() {
 
         return (
           <group key={node.label} position={[x, 0, z]}>
-            {/* Node sphere */}
+
             <mesh
               onPointerEnter={() => setHoveredNode(i)}
               onPointerLeave={() => setHoveredNode(null)}
@@ -85,7 +79,6 @@ function AICoreModel() {
               />
             </mesh>
 
-            {/* Node glow */}
             <mesh>
               <sphereGeometry args={[0.35, 16, 16]} />
               <meshBasicMaterial
@@ -95,7 +88,6 @@ function AICoreModel() {
               />
             </mesh>
 
-            {/* Node label */}
             <Text
               position={[0, 0.5, 0]}
               fontSize={0.12}
@@ -106,7 +98,6 @@ function AICoreModel() {
               {node.label.toUpperCase()}
             </Text>
 
-            {/* Connection line to center */}
             <Line
               points={[[-x, 0, -z], [0, 0, 0]]}
               color={node.color}
@@ -115,7 +106,6 @@ function AICoreModel() {
               lineWidth={1}
             />
 
-            {/* Hover info panel */}
             {isHovered && (
               <Html position={[0, -0.5, 0]} center>
                 <div
@@ -141,7 +131,6 @@ function AICoreModel() {
         );
       })}
 
-      {/* Outer ring */}
       <mesh rotation={[Math.PI / 2, 0, 0]}>
         <torusGeometry args={[radius, 0.005, 8, 64]} />
         <meshBasicMaterial color="#00F5FF" transparent opacity={0.15} />
@@ -150,9 +139,6 @@ function AICoreModel() {
   );
 }
 
-/* ============================
-   Main Section
-   ============================ */
 export default function AICoreSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -160,7 +146,7 @@ export default function AICoreSection() {
   return (
     <section ref={ref} id="ai-core" className="relative z-[1] section-padding">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
+
         <div className="text-center mb-12">
           <p
             className="text-xs tracking-[0.5em] uppercase mb-4"
@@ -173,7 +159,6 @@ export default function AICoreSection() {
           </TextReveal>
         </div>
 
-        {/* 3D AI Core */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -198,7 +183,6 @@ export default function AICoreSection() {
           </Canvas>
         </motion.div>
 
-        {/* Description */}
         <p
           className="text-center text-sm max-w-lg mx-auto mt-8"
           style={{ color: "#555", letterSpacing: "0.05em" }}

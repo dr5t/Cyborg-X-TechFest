@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-/* ============================================
-   CYBORG-X Design System
-   ============================================ */
-
 :root {
   --bg: #050505;
   --primary: #00F5FF;
@@ -30,10 +26,6 @@
   --font-display: 'Audiowide', sans-serif;
 }
 
-/* ============================================
-   Base Styles
-   ============================================ */
-
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -50,7 +42,6 @@ body {
   cursor: none;
 }
 
-/* Hide cursor on touch devices */
 @media (hover: none) {
   body {
     cursor: auto;
@@ -61,10 +52,6 @@ body {
   background: rgba(0, 245, 255, 0.3);
   color: #fff;
 }
-
-/* ============================================
-   Custom Scrollbar
-   ============================================ */
 
 ::-webkit-scrollbar {
   width: 6px;
@@ -83,20 +70,12 @@ body {
   background: var(--primary);
 }
 
-/* ============================================
-   Typography
-   ============================================ */
-
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Orbitron', sans-serif;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
-
-/* ============================================
-   Glassmorphism
-   ============================================ */
 
 .glass {
   background: var(--glass);
@@ -113,10 +92,6 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
 }
-
-/* ============================================
-   Glow Utilities
-   ============================================ */
 
 .glow-primary {
   box-shadow: 0 0 20px rgba(0, 245, 255, 0.3),
@@ -144,10 +119,6 @@ h1, h2, h3, h4, h5, h6 {
                0 0 30px rgba(123, 46, 255, 0.3);
 }
 
-/* ============================================
-   Gradient Border (animated)
-   ============================================ */
-
 .gradient-border {
   position: relative;
 }
@@ -170,10 +141,6 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 
-/* ============================================
-   Scanline Overlay
-   ============================================ */
-
 .scanlines::after {
   content: '';
   position: absolute;
@@ -188,10 +155,6 @@ h1, h2, h3, h4, h5, h6 {
   );
   z-index: 50;
 }
-
-/* ============================================
-   Animations
-   ============================================ */
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
@@ -295,10 +258,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* ============================================
-   Utility Animation Classes
-   ============================================ */
-
 .animate-float { animation: float 3s ease-in-out infinite; }
 .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
 .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
@@ -308,10 +267,6 @@ h1, h2, h3, h4, h5, h6 {
 .animate-spin-slow { animation: spin-slow 20s linear infinite; }
 .animate-energy-pulse { animation: energy-pulse 2s ease-in-out infinite; }
 .animate-bounce-arrow { animation: bounce-arrow 2s ease-in-out infinite; }
-
-/* ============================================
-   Section Utilities
-   ============================================ */
 
 .section-padding {
   padding: 6rem 1.5rem;
@@ -341,20 +296,12 @@ h1, h2, h3, h4, h5, h6 {
   background-clip: text;
 }
 
-/* ============================================
-   Loading Screen
-   ============================================ */
-
 .loading-text {
   font-family: 'Orbitron', sans-serif;
   font-size: clamp(0.7rem, 1.5vw, 0.9rem);
   letter-spacing: 0.3em;
   text-transform: uppercase;
 }
-
-/* ============================================
-   Noise Overlay (global)
-   ============================================ */
 
 .noise-overlay {
   position: fixed;

@@ -72,13 +72,11 @@ export default function LoadingScreen({
           exit={{ opacity: 0, scale: 1.1 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
         >
-          {/* Scanlines */}
+
           <div className="absolute inset-0 pointer-events-none opacity-20 scanlines" />
 
-          {/* CRT Flicker */}
           <div className="absolute inset-0 animate-crt-flicker" />
 
-          {/* Scan beam */}
           <div
             className="absolute left-0 right-0 h-[2px] animate-scan-line pointer-events-none"
             style={{
@@ -87,7 +85,6 @@ export default function LoadingScreen({
             }}
           />
 
-          {/* Logo / Title */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -113,7 +110,6 @@ export default function LoadingScreen({
             </p>
           </motion.div>
 
-          {/* Boot Messages */}
           <div className="w-[300px] md:w-[400px]">
             <div className="relative mb-6">
               <motion.p
@@ -134,7 +130,6 @@ export default function LoadingScreen({
               </motion.p>
             </div>
 
-            {/* Progress Bar */}
             <div className="relative h-[2px] w-full overflow-hidden rounded-full bg-white/5">
               <motion.div
                 className="absolute inset-y-0 left-0 rounded-full"
@@ -159,7 +154,6 @@ export default function LoadingScreen({
             </p>
           </div>
 
-          {/* Corner Brackets */}
           <div className="absolute top-6 left-6 w-8 h-8 border-t border-l border-[#00F5FF]/30" />
           <div className="absolute top-6 right-6 w-8 h-8 border-t border-r border-[#00F5FF]/30" />
           <div className="absolute bottom-6 left-6 w-8 h-8 border-b border-l border-[#00F5FF]/30" />

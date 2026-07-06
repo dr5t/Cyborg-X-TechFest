@@ -10,9 +10,6 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-/* ============================
-   Transformation 3D Model
-   ============================ */
 function TransformModel({ progress }: { progress: number }) {
   const groupRef = useRef<THREE.Group>(null);
   const wireframeRef = useRef<THREE.Mesh>(null);
@@ -28,11 +25,10 @@ function TransformModel({ progress }: { progress: number }) {
     }
   });
 
-  // Armor geometry (grows with progress)
   const armorScale = Math.max(0, (progress - 0.5) * 2);
-  // Neural visibility (appears stage 2+)
+
   const neuralOpacity = Math.min(1, Math.max(0, (progress - 0.2) * 3)) * 0.3;
-  // Color transition
+
   const primaryMix = progress;
   const color = new THREE.Color("#FFFFFF").lerp(
     new THREE.Color("#00F5FF"),
@@ -40,12 +36,11 @@ function TransformModel({ progress }: { progress: number }) {
   );
   const secondaryColor = new THREE.Color("#7B2EFF");
 
-  // Wireframe detail increases with progress
   const detail = progress > 0.6 ? 4 : progress > 0.3 ? 3 : 2;
 
   return (
     <group ref={groupRef} scale={1.5}>
-      {/* Base wireframe head */}
+
       <mesh ref={wireframeRef}>
         <icosahedronGeometry args={[1.5, detail]} />
         <meshBasicMaterial
@@ -56,7 +51,6 @@ function TransformModel({ progress }: { progress: number }) {
         />
       </mesh>
 
-      {/* Neural connections (stage 2+) */}
       {progress > 0.15 && (
         <lineSegments ref={neuralRef}>
           <icosahedronGeometry args={[1.6, 2]} />
@@ -68,7 +62,6 @@ function TransformModel({ progress }: { progress: number }) {
         </lineSegments>
       )}
 
-      {/* Digital implants (stage 3+) */}
       {progress > 0.35 &&
         [0, 1, 2, 3, 4, 5].map((i) => {
           const angle = (i / 6) * Math.PI * 2;
@@ -96,7 +89,6 @@ function TransformModel({ progress }: { progress: number }) {
           );
         })}
 
-      {/* Cybernetic armor (stage 4+) */}
       {progress > 0.5 && (
         <mesh ref={armorRef} scale={1 + armorScale * 0.15}>
           <icosahedronGeometry args={[1.7, 1]} />
@@ -109,7 +101,6 @@ function TransformModel({ progress }: { progress: number }) {
         </mesh>
       )}
 
-      {/* Inner energy core */}
       <mesh ref={coreRef}>
         <sphereGeometry args={[0.3 + progress * 0.3, 16, 16]} />
         <meshBasicMaterial
@@ -119,7 +110,6 @@ function TransformModel({ progress }: { progress: number }) {
         />
       </mesh>
 
-      {/* Outer rings (appear with transformation) */}
       {progress > 0.6 &&
         [0, 1, 2].map((i) => (
           <mesh
@@ -149,9 +139,6 @@ function TransformModel({ progress }: { progress: number }) {
   );
 }
 
-/* ============================
-   Stage Labels
-   ============================ */
 const STAGES = [
   { label: "HUMAN FORM", color: "#FFFFFF" },
   { label: "NEURAL AWAKENING", color: "#00F5FF" },
@@ -160,9 +147,6 @@ const STAGES = [
   { label: "COMPLETE EVOLUTION", color: "#00FF88" },
 ];
 
-/* ============================
-   Main Section
-   ============================ */
 export default function TransformationSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef(0);
@@ -183,7 +167,6 @@ export default function TransformationSection() {
       onUpdate: (self) => {
         progressRef.current = self.progress;
 
-        // Update stage indicator
         const stageIndex = Math.min(
           4,
           Math.floor(self.progress * 5)
@@ -194,7 +177,6 @@ export default function TransformationSection() {
           stageRef.current.style.textShadow = `0 0 20px ${STAGES[stageIndex].color}50`;
         }
 
-        // Update progress bar
         if (progressDisplayRef.current) {
           progressDisplayRef.current.style.height = `${self.progress * 100}%`;
         }
@@ -213,12 +195,12 @@ export default function TransformationSection() {
       className="relative"
       style={{ height: "500vh" }}
     >
-      {/* Pinned container */}
+
       <div
         ref={canvasContainerRef}
         className="w-full h-screen flex items-center justify-center"
       >
-        {/* Section Title */}
+
         <div className="absolute top-8 left-1/2 -translate-x-1/2 z-10 text-center">
           <p
             className="text-xs tracking-[0.5em] uppercase mb-2"
@@ -239,7 +221,6 @@ export default function TransformationSection() {
           </h2>
         </div>
 
-        {/* 3D Canvas */}
         <div className="w-full h-full">
           <Canvas
             camera={{ position: [0, 0, 5], fov: 50 }}
@@ -257,7 +238,6 @@ export default function TransformationSection() {
           </Canvas>
         </div>
 
-        {/* Stage Label */}
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10">
           <div
             ref={stageRef}
@@ -271,7 +251,6 @@ export default function TransformationSection() {
           </div>
         </div>
 
-        {/* Progress Bar (right side) */}
         <div className="absolute right-6 top-1/2 -translate-y-1/2 z-10">
           <div className="w-[2px] h-40 rounded-full overflow-hidden bg-white/10">
             <div
@@ -283,7 +262,7 @@ export default function TransformationSection() {
               }}
             />
           </div>
-          {/* Stage dots */}
+
           <div className="absolute -left-[5px] top-0 h-full flex flex-col justify-between">
             {STAGES.map((_, i) => (
               <div
@@ -298,7 +277,6 @@ export default function TransformationSection() {
   );
 }
 
-/* Wrapper to pass ref-based progress into the 3D component */
 function TransformModelWrapper({
   progressRef,
 }: {

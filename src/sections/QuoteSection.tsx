@@ -52,7 +52,7 @@ export default function QuoteSection() {
       id="quote"
       className="relative z-[1] flex items-center justify-center min-h-[70vh] section-padding"
     >
-      {/* Background glow */}
+
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -81,7 +81,6 @@ export default function QuoteSection() {
           </blockquote>
         </div>
 
-        {/* Decorative lines */}
         <div className="flex items-center justify-center gap-4 mt-10">
           <div
             className="h-[1px] w-16"

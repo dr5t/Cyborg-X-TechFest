@@ -19,14 +19,13 @@ export default function StatsSection() {
   return (
     <section ref={ref} id="stats" className="relative z-[1] section-padding">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
+
         <div className="text-center mb-16">
           <TextReveal as="h2" className="section-title">
             BY THE NUMBERS
           </TextReveal>
         </div>
 
-        {/* Stats Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {STATS.map((stat, i) => (
             <motion.div

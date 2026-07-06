@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CYBORG-X: The Human Upgrade
 
-## Getting Started
+A premium, futuristic landing page developed for the **IIT Bombay Techfest Campus Ambassador Task**. This project showcases an Awwwards-winning level web experience that combines modern web technologies with advanced 3D WebGL rendering, smooth scroll animations, and a cyberpunk aesthetic.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Immersive 3D WebGL Background**: Procedurally generated cyber-grid and floating data particles built with React Three Fiber.
+- **Scroll-Driven Storytelling**: Cinematic human-to-cyborg transformation sequence triggered by scroll position using GSAP.
+- **Glassmorphism UI**: High-end translucent interfaces with neon hover states and dynamic lighting.
+- **Interactive Cybernetics**: 
+  - Magnetic buttons
+  - Tilt-aware capability cards
+  - Reactive 3D AI Core
+  - Particle explosion CTA
+- **Performance Optimized**: Fully responsive Next.js 16 (Turbopack) architecture with dynamically loaded components and optimized Three.js renders.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: [Next.js 16](https://nextjs.org/) (React 19, TypeScript)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) + Vanilla CSS Custom Properties
+- **3D & WebGL**: 
+  - [Three.js](https://threejs.org/)
+  - [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber/)
+  - [@react-three/drei](https://github.com/pmndrs/drei)
+  - [@react-three/postprocessing](https://github.com/pmndrs/react-postprocessing)
+- **Animations**:
+  - [GSAP](https://gsap.com/) (ScrollTrigger)
+  - [Framer Motion](https://www.framer.com/motion/)
+  - [Lenis](https://lenis.darkroom.engineering/) (Smooth Scroll)
+- **Icons**: [Lucide React](https://lucide.dev/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 💻 Local Development
 
-## Learn More
+1. **Clone the repository** (if applicable):
+   ```bash
+   git clone <repository-url>
+   cd cyborg-x-techfest
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to view the experience.
 
-## Deploy on Vercel
+## 🌐 Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `/src/components` - Reusable UI elements (Buttons, Text Reveal, Cursor, Loaders)
+- `/src/sections` - Major page segments (Hero, AI Core, Capabilities, Timeline, CTA)
+- `/src/shaders` - Custom GLSL shaders for WebGL effects
+- `/src/app` - Next.js App Router configuration and global styles
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+
+This project was developed exclusively for the IIT Bombay Techfest Campus Ambassador showcase. All systems operational.

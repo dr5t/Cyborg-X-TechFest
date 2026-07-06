@@ -8,9 +8,6 @@ import * as THREE from "three";
 import { particleVertexShader, particleFragmentShader } from "@/shaders/particleShader";
 import { gridVertexShader, gridFragmentShader } from "@/shaders/gridShader";
 
-/* ============================
-   Cyber Grid Floor
-   ============================ */
 function CyberGrid() {
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.ShaderMaterial>(null);
@@ -45,9 +42,6 @@ function CyberGrid() {
   );
 }
 
-/* ============================
-   Particle Galaxy
-   ============================ */
 function ParticleGalaxy() {
   const pointsRef = useRef<THREE.Points>(null);
   const materialRef = useRef<THREE.ShaderMaterial>(null);
@@ -64,7 +58,7 @@ function ParticleGalaxy() {
     const accentColor = new THREE.Color("#FF006E");
 
     for (let i = 0; i < count; i++) {
-      // Spread particles in a large volume
+
       positions[i * 3] = (Math.random() - 0.5) * 40;
       positions[i * 3 + 1] = (Math.random() - 0.5) * 30;
       positions[i * 3 + 2] = (Math.random() - 0.5) * 40;
@@ -72,7 +66,6 @@ function ParticleGalaxy() {
       sizes[i] = Math.random() * 3 + 0.5;
       speeds[i] = Math.random() * 0.3 + 0.1;
 
-      // Random color selection
       const r = Math.random();
       const color =
         r < 0.5 ? primaryColor : r < 0.8 ? secondaryColor : accentColor;
@@ -122,9 +115,6 @@ function ParticleGalaxy() {
   );
 }
 
-/* ============================
-   Neural Network Lines
-   ============================ */
 function NeuralLines() {
   const linesRef = useRef<THREE.LineSegments>(null);
 
@@ -143,7 +133,6 @@ function NeuralLines() {
       );
     }
 
-    // Connect nearby nodes
     for (let i = 0; i < nodeCount; i++) {
       for (let j = i + 1; j < nodeCount; j++) {
         const dist = nodes[i].distanceTo(nodes[j]);
@@ -177,9 +166,6 @@ function NeuralLines() {
   );
 }
 
-/* ============================
-   Mouse Reactive Light
-   ============================ */
 function MouseLight() {
   const lightRef = useRef<THREE.PointLight>(null);
   const { viewport } = useThree();
@@ -207,9 +193,6 @@ function MouseLight() {
   );
 }
 
-/* ============================
-   Scene
-   ============================ */
 function Scene() {
   return (
     <>
@@ -222,9 +205,6 @@ function Scene() {
   );
 }
 
-/* ============================
-   Main Export
-   ============================ */
 export default function WebGLBackground() {
   return (
     <div className="fixed inset-0 z-0" style={{ pointerEvents: "none" }}>

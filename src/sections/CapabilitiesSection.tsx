@@ -56,7 +56,6 @@ function TiltCard({
     card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
     card.style.boxShadow = `0 0 30px ${capability.color}20, 0 0 60px ${capability.color}10`;
 
-    // Move glow position
     const glowEl = card.querySelector(".card-glow") as HTMLElement;
     if (glowEl) {
       glowEl.style.background = `radial-gradient(circle at ${x}px ${y}px, ${capability.color}15, transparent 60%)`;
@@ -94,10 +93,9 @@ function TiltCard({
           animationDelay: `${index * 0.3}s`,
         }}
       >
-        {/* Glow overlay */}
+
         <div className="card-glow absolute inset-0 rounded-2xl pointer-events-none transition-all duration-300" />
 
-        {/* Animated border */}
         <div
           className="absolute inset-0 rounded-2xl opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{
@@ -110,7 +108,6 @@ function TiltCard({
           }}
         />
 
-        {/* Content */}
         <div className="relative z-10">
           <div
             className="text-4xl mb-5"
@@ -137,7 +134,6 @@ function TiltCard({
           </p>
         </div>
 
-        {/* Corner accent */}
         <div
           className="absolute top-0 right-0 w-16 h-16"
           style={{
@@ -160,7 +156,7 @@ export default function CapabilitiesSection() {
       className="relative z-[1] section-padding"
     >
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
+
         <div className="text-center mb-16 md:mb-20">
           <p
             className="text-xs tracking-[0.5em] uppercase mb-4"
@@ -185,7 +181,6 @@ export default function CapabilitiesSection() {
           />
         </div>
 
-        {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {CAPABILITIES.map((cap, i) => (
             <TiltCard key={cap.title} capability={cap} index={i} />

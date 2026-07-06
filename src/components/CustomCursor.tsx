@@ -12,7 +12,7 @@ export default function CustomCursor() {
   const rafId = useRef<number>(0);
 
   useEffect(() => {
-    // Only show custom cursor on devices with hover capability
+
     const hasHover = window.matchMedia("(hover: hover)").matches;
     if (!hasHover) return;
 
@@ -24,7 +24,6 @@ export default function CustomCursor() {
     const handleMouseEnter = () => setIsVisible(true);
     const handleMouseLeave = () => setIsVisible(false);
 
-    // Detect hoverable elements
     const handleElementHover = (e: Event) => {
       const target = e.target as HTMLElement;
       if (
@@ -53,7 +52,6 @@ export default function CustomCursor() {
     document.addEventListener("mouseover", handleElementHover);
     document.addEventListener("mouseout", handleElementLeave);
 
-    // Animation loop with lerp for smooth trailing
     const animate = () => {
       trailPosition.current.x +=
         (position.current.x - trailPosition.current.x) * 0.15;
@@ -85,7 +83,7 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Inner dot */}
+
       <div
         ref={cursorRef}
         className="fixed top-0 left-0 pointer-events-none z-[9998]"
@@ -99,7 +97,7 @@ export default function CustomCursor() {
           willChange: "transform",
         }}
       />
-      {/* Outer ring / trail */}
+
       <div
         ref={trailRef}
         className="fixed top-0 left-0 pointer-events-none z-[9997]"

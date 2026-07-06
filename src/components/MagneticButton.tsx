@@ -54,7 +54,7 @@ export default function MagneticButton({
         transition: "transform 0.2s ease-out, box-shadow 0.3s, border-color 0.3s, color 0.3s",
       }}
     >
-      {/* Ripple effect on hover */}
+
       <span className="absolute inset-0 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-[#00F5FF]/5 to-[#7B2EFF]/5" />
       <span className="relative z-10">{children}</span>
     </motion.button>

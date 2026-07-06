@@ -13,7 +13,6 @@ export default function CyborgHead() {
   const mousePos = useRef({ x: 0, y: 0 });
   const { viewport } = useThree();
 
-  // Mouse tracking
   useFrame(() => {
     const handleMouseMove = (e: MouseEvent) => {
       mousePos.current.x = (e.clientX / window.innerWidth) * 2 - 1;
@@ -24,16 +23,14 @@ export default function CyborgHead() {
     }
   });
 
-  // Neural connection geometry
   const neuralGeometry = useMemo(() => {
     const geo = new THREE.IcosahedronGeometry(2, 3);
     const posArray = geo.attributes.position.array;
     const lines: number[] = [];
 
-    // Create random connections between vertices
     for (let i = 0; i < posArray.length; i += 3) {
       const startIdx = i;
-      // Connect to 1-2 random vertices
+
       for (let c = 0; c < 2; c++) {
         const targetIdx =
           Math.floor(Math.random() * (posArray.length / 3)) * 3;
@@ -64,7 +61,7 @@ export default function CyborgHead() {
     const t = state.clock.elapsedTime;
 
     if (groupRef.current) {
-      // Auto rotation + mouse tracking
+
       groupRef.current.rotation.y = t * 0.15 + mousePos.current.x * 0.3;
       groupRef.current.rotation.x = mousePos.current.y * 0.15;
     }
@@ -90,7 +87,7 @@ export default function CyborgHead() {
 
   return (
     <group ref={groupRef} scale={viewport.width < 6 ? 0.7 : 1}>
-      {/* Main wireframe head (icosahedron) */}
+
       <mesh ref={wireframeRef}>
         <icosahedronGeometry args={[2, 3]} />
         <meshBasicMaterial
@@ -101,7 +98,6 @@ export default function CyborgHead() {
         />
       </mesh>
 
-      {/* Inner glow sphere */}
       <mesh>
         <icosahedronGeometry args={[1.8, 2]} />
         <meshBasicMaterial
@@ -111,7 +107,6 @@ export default function CyborgHead() {
         />
       </mesh>
 
-      {/* Inner core */}
       <mesh>
         <sphereGeometry args={[0.5, 16, 16]} />
         <meshBasicMaterial
@@ -121,12 +116,10 @@ export default function CyborgHead() {
         />
       </mesh>
 
-      {/* Neural connections inside */}
       <lineSegments ref={neuralLinesRef} geometry={neuralGeometry}>
         <lineBasicMaterial color="#7B2EFF" transparent opacity={0.2} />
       </lineSegments>
 
-      {/* Orbital energy rings */}
       <group ref={ringsRef}>
         {[0, 1, 2].map((i) => (
           <mesh key={i} rotation={[Math.PI / 2 + i * 0.4, i * 0.3, 0]}>
@@ -140,7 +133,6 @@ export default function CyborgHead() {
         ))}
       </group>
 
-      {/* Holographic scan line */}
       <mesh ref={scanLineRef}>
         <planeGeometry args={[6, 0.05]} />
         <meshBasicMaterial
@@ -151,7 +143,6 @@ export default function CyborgHead() {
         />
       </mesh>
 
-      {/* Floating vertices / data points */}
       {useMemo(() => {
         const points: React.JSX.Element[] = [];
         const geo = new THREE.IcosahedronGeometry(2.2, 2);

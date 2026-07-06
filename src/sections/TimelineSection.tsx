@@ -81,7 +81,7 @@ export default function TimelineSection() {
       className="relative z-[1] section-padding"
     >
       <div ref={ref} className="max-w-4xl mx-auto">
-        {/* Header */}
+
         <div className="text-center mb-16 md:mb-20">
           <p
             className="text-xs tracking-[0.5em] uppercase mb-4"
@@ -94,9 +94,8 @@ export default function TimelineSection() {
           </TextReveal>
         </div>
 
-        {/* Timeline */}
         <div className="relative">
-          {/* Animated progress line */}
+
           <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] md:-translate-x-1/2">
             <div className="w-full h-full bg-white/5 rounded-full" />
             <div
@@ -110,7 +109,6 @@ export default function TimelineSection() {
             />
           </div>
 
-          {/* Events */}
           <div className="space-y-16 md:space-y-24">
             {EVENTS.map((event, i) => {
               const isLeft = i % 2 === 0;
@@ -131,7 +129,7 @@ export default function TimelineSection() {
                       : "md:flex-row-reverse pl-16 md:pl-0"
                   }`}
                 >
-                  {/* Content */}
+
                   <div
                     className={`w-full md:w-[calc(50%-2rem)] ${
                       isLeft ? "md:text-right md:pr-12" : "md:text-left md:pl-12"
@@ -164,7 +162,6 @@ export default function TimelineSection() {
                     </p>
                   </div>
 
-                  {/* Timeline dot */}
                   <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
                     <motion.div
                       whileInView={{
@@ -184,7 +181,6 @@ export default function TimelineSection() {
                     </motion.div>
                   </div>
 
-                  {/* Empty space for opposite side on desktop */}
                   <div className="hidden md:block md:w-[calc(50%-2rem)]" />
                 </motion.div>
               );

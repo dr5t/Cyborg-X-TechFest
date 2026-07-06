@@ -30,7 +30,6 @@ export default function TextReveal({
     const text = el.textContent || "";
     const words = text.split(" ");
 
-    // Wrap each word in a span for animation
     el.innerHTML = words
       .map(
         (word) =>

@@ -101,7 +101,7 @@ export default function ComparisonSection() {
       className="relative z-[1] section-padding"
     >
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
+
         <div className="text-center mb-16">
           <p
             className="text-xs tracking-[0.5em] uppercase mb-4"
@@ -114,9 +114,8 @@ export default function ComparisonSection() {
           </TextReveal>
         </div>
 
-        {/* Split Comparison */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0">
-          {/* Human Side */}
+
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -148,7 +147,6 @@ export default function ComparisonSection() {
               ))}
             </div>
 
-            {/* Human stats summary */}
             <div className="mt-8 pt-6 border-t border-white/5">
               <p className="text-xs" style={{ color: "#555" }}>
                 Average Efficiency
@@ -165,7 +163,6 @@ export default function ComparisonSection() {
             </div>
           </motion.div>
 
-          {/* Cyborg Side */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -173,7 +170,7 @@ export default function ComparisonSection() {
             className="glass p-8 md:rounded-l-none relative overflow-hidden"
             style={{ borderColor: "rgba(0,245,255,0.1)" }}
           >
-            {/* Glow background */}
+
             <div
               className="absolute inset-0 opacity-5"
               style={{
@@ -208,7 +205,6 @@ export default function ComparisonSection() {
                 ))}
               </div>
 
-              {/* Cyborg stats summary */}
               <div className="mt-8 pt-6 border-t border-[#00F5FF]/10">
                 <p className="text-xs" style={{ color: "#555" }}>
                   Average Efficiency
@@ -227,7 +223,6 @@ export default function ComparisonSection() {
           </motion.div>
         </div>
 
-        {/* Divider energy line (desktop only) */}
         <motion.div
           initial={{ scaleY: 0 }}
           animate={isInView ? { scaleY: 1 } : {}}

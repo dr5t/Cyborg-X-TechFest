@@ -16,7 +16,6 @@ export default function CTASection() {
   const handleActivate = () => {
     setActivated(true);
 
-    // Generate particle explosion
     const newParticles = Array.from({ length: 30 }, (_, i) => ({
       id: Date.now() + i,
       x: (Math.random() - 0.5) * 400,
@@ -36,7 +35,7 @@ export default function CTASection() {
       id="cta"
       className="relative z-[1] flex items-center justify-center min-h-[80vh] section-padding overflow-hidden"
     >
-      {/* Background */}
+
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -47,7 +46,6 @@ export default function CTASection() {
         }}
       />
 
-      {/* Grid lines background */}
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -92,7 +90,6 @@ export default function CTASection() {
             Step beyond the boundaries of human limitation. The upgrade awaits.
           </p>
 
-          {/* CTA Button with particle explosion */}
           <div className="relative inline-block">
             <MagneticButton
               variant="primary"
@@ -106,7 +103,6 @@ export default function CTASection() {
               {activated ? "⚡ ACTIVATED" : "ACTIVATE CYBORG MODE"}
             </MagneticButton>
 
-            {/* Explosion particles */}
             {particles.map((p) => (
               <motion.div
                 key={p.id}
@@ -130,7 +126,6 @@ export default function CTASection() {
             ))}
           </div>
 
-          {/* Energy pulse rings */}
           {activated && (
             <>
               {[0, 1, 2].map((i) => (
