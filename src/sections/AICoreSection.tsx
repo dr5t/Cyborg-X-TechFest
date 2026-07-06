@@ -2,7 +2,7 @@
 
 import { useRef, useMemo, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Text, Html } from "@react-three/drei";
+import { Text, Html, Line } from "@react-three/drei";
 import * as THREE from "three";
 import { motion, useInView } from "framer-motion";
 import TextReveal from "@/components/TextReveal";
@@ -107,24 +107,13 @@ function AICoreModel() {
             </Text>
 
             {/* Connection line to center */}
-            <line>
-              <bufferGeometry>
-                <bufferAttribute
-                  attach="attributes-position"
-                  array={new Float32Array([
-                    -x, 0, -z,
-                    0, 0, 0,
-                  ])}
-                  count={2}
-                  itemSize={3}
-                />
-              </bufferGeometry>
-              <lineBasicMaterial
-                color={node.color}
-                transparent
-                opacity={isHovered ? 0.4 : 0.1}
-              />
-            </line>
+            <Line
+              points={[[-x, 0, -z], [0, 0, 0]]}
+              color={node.color}
+              transparent
+              opacity={isHovered ? 0.4 : 0.1}
+              lineWidth={1}
+            />
 
             {/* Hover info panel */}
             {isHovered && (

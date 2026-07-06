@@ -92,6 +92,15 @@ function ParticleGalaxy() {
     []
   );
 
+  const geometry = useMemo(() => {
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    geo.setAttribute("aSize", new THREE.BufferAttribute(sizes, 1));
+    geo.setAttribute("aSpeed", new THREE.BufferAttribute(speeds, 1));
+    geo.setAttribute("aColor", new THREE.BufferAttribute(colors, 3));
+    return geo;
+  }, [positions, sizes, speeds, colors]);
+
   useFrame((state) => {
     if (materialRef.current) {
       materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
@@ -99,33 +108,7 @@ function ParticleGalaxy() {
   });
 
   return (
-    <points ref={pointsRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          array={positions}
-          count={positions.length / 3}
-          itemSize={3}
-        />
-        <bufferAttribute
-          attach="attributes-aSize"
-          array={sizes}
-          count={sizes.length}
-          itemSize={1}
-        />
-        <bufferAttribute
-          attach="attributes-aSpeed"
-          array={speeds}
-          count={speeds.length}
-          itemSize={1}
-        />
-        <bufferAttribute
-          attach="attributes-aColor"
-          array={colors}
-          count={colors.length / 3}
-          itemSize={3}
-        />
-      </bufferGeometry>
+    <points ref={pointsRef} geometry={geometry}>
       <shaderMaterial
         ref={materialRef}
         vertexShader={particleVertexShader}
