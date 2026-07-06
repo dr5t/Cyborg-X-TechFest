@@ -153,7 +153,7 @@ export default function CyborgHead() {
 
       {/* Floating vertices / data points */}
       {useMemo(() => {
-        const points: JSX.Element[] = [];
+        const points: React.JSX.Element[] = [];
         const geo = new THREE.IcosahedronGeometry(2.2, 2);
         const posArray = geo.attributes.position.array;
         for (let i = 0; i < posArray.length; i += 9) {
